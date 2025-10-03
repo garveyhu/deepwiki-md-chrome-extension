@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "DeepWiki to Markdown",
-  "version": "0.0.4",
-  "description": "Convert DeepWiki page content to Markdown format and save it",
+  "name": "DeepWiki to Markdown Enhanced",
+  "version": "0.1.0",
+  "description": "Enhanced DeepWiki to Markdown converter with on-page buttons, translation support, and hierarchical structure preservation",
   "permissions": [
     "activeTab",
     "downloads",
@@ -12,7 +12,9 @@
     "webNavigation"
   ],
   "host_permissions": [
-    "https://deepwiki.com/*"
+    "https://deepwiki.com/*",
+    "https://translate.google.com/*",
+    "https://translate.googleapis.com/*"
   ],
   "action": {
     "default_popup": "popup.html",
@@ -25,12 +27,25 @@
   "content_scripts": [
     {
       "matches": ["https://deepwiki.com/*"],
-      "js": ["content.js"],
-      "run_at": "document_end"
+      "js": [
+        "lib/jszip.min.js",
+        "content/preferences.js",
+        "content/diagram-flow.js",
+        "content.js",
+        "content/messages.js"
+      ],
+      "run_at": "document_end",
+      "css": ["styles.css"]
     }
   ],
   "background": {
     "service_worker": "background.js",
     "type": "module"
-  }
-} 
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["lib/jszip.min.js"],
+      "matches": ["https://deepwiki.com/*"]
+    }
+  ]
+}

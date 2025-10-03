@@ -4,9 +4,9 @@
 
 ## 目的
 
-想要保存deepwiki网站的github 仓库代码文档，这样可以在本地修改，然后改写成自己的博客，甚至加入一些自己的见解。目前没有发布到谷歌商店，只是作为个人使用的工具。如果想要使用，可以clone下来，或者到release下载下来，打开chrome的开发者模式，选择下载下来的目录加就行了。
+想要保存 deepwiki 网站的 github 仓库代码文档，这样可以在本地修改，然后改写成自己的博客，甚至加入一些自己的见解。目前没有发布到谷歌商店，只是作为个人使用的工具。如果想要使用，可以 clone 下来，或者到 release 下载下来，打开 chrome 的开发者模式，选择下载下来的目录加就行了。
 
-例如打开 [ThinkInAIXYZ/go-mcp](https://deepwiki.com/ThinkInAIXYZ/go-mcp )，如下：
+例如打开 [ThinkInAIXYZ/go-mcp](https://deepwiki.com/ThinkInAIXYZ/go-mcp)，如下：
 
 ![](./images/deepwiki-github.png)
 
@@ -18,13 +18,15 @@
 
 1. 将 DeepWiki 网站的单页内容转换为 Markdown 格式
 2. 一键批量转换和下载文档的所有子页面（打包为 ZIP 文件）
-3. 会保存文档中的 UML 图
+3. 内置调用 Google Translate 接口，在导出前自动翻译（默认简体中文，可在弹窗中选择其他语言）
+4. 会保存文档中的 UML 图
 
 ## 使用方法
 
 ![](./images/UI.png)
 
 1. 单页转换：
+
    - 打开任意 DeepWiki 页面，例如：[ThinkInAIXYZ/go-mcp](https://deepwiki.com/ThinkInAIXYZ/go-mcp)
    - 点击扩展图标
    - 点击"Convert & Download Current Page"按钮
@@ -39,6 +41,7 @@
 ## 注意事项
 
 - 批量转换过程中，将按顺序访问所有页面，请耐心等待
+- 每个页面在转换前会自动翻译，请确保浏览器可以访问 `https://translate.googleapis.com`
 - 所有文件将打包到以当前页面标题命名的 ZIP 文件中
 - ZIP 文件包含一个 "README.md" 文件，列出所有文档的链接
 
@@ -46,7 +49,7 @@
 
 未来计划的功能包括：
 
-- 转换前自动翻译为其他语言
+- 支持更多翻译目标语言与自定义选项
 - 增强本地存储选项
 - 与云服务集成：
   - 谷歌云端硬盘
@@ -55,4 +58,4 @@
   - Notion
   - 等更多服务...
 
-欢迎通过创建 issue 或 pull request 来贡献代码或提出新功能建议。 
+欢迎通过创建 issue 或 pull request 来贡献代码或提出新功能建议。
